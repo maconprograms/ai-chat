@@ -36,12 +36,21 @@ function getQueryParam(param) {
 // Create the script element for AnythingLLM chat widget
 var script = document.createElement('script');
 
-// Set attributes for the script including dynamic embed ID from URL params
-script.setAttribute('data-embed-id', getQueryParam('embedId')); // Use 'embedId' as the URL parameter
+// Set required attributes for the script
+script.setAttribute('data-embed-id', getQueryParam('embedId')); // Dynamic embed ID from URL params
 script.setAttribute('data-base-api-url', "https://murmuration.useanything.com/api/embed");
 script.src = "https://murmuration.useanything.com/embed/anythingllm-chat-widget.min.js";
 
-// Optional: Add more attributes here as needed
+// Customization Options
+script.setAttribute('data-user-bg-color', '#800080'); // Purple
+script.setAttribute('data-assistant-bg-color', '#008000'); // Green
+script.setAttribute('data-brand-image-url', 'https://github.com/maconprograms/ai-chat/blob/main/Starling-icon.png?raw=true'); // Ensure using raw image URL
+script.setAttribute('data-greeting', 'Hello fellow Starling! How can I help you?');
+script.setAttribute('data-sponsor-link', 'https://starlingstrategy.com/');
+script.setAttribute('data-sponsor-text', 'Starling Strategy');
+script.setAttribute('data-position', 'top-left');
+script.setAttribute('data-assistant-name', 'Starly');
+script.setAttribute('data-open-on-load', ''); // Simply setting attribute will enable it
 
 // Append the script to the chat widget container
 document.querySelector('.chat-widget-container').appendChild(script);
