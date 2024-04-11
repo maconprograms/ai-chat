@@ -22,24 +22,30 @@
 <body>
 
 <div class="chat-widget-container">
-    <!-- AnythingLLM Embedded Chat Widget -->
-    <script
-      data-embed-id="your-embed-id-here"
-      data-base-api-url="https://murmuration.useanything.com/api/embed"
-      src="https://murmuration.useanything.com/embed/anythingllm-chat-widget.min.js"
-
-      <!-- Customization Options -->
-      data-model="gpt-3.5-turbo" <!-- Example model -->
-      data-temperature="0.7" <!-- Response creativity level -->
-      data-button-color="#007BFF" <!-- Primary color for the button -->
-      data-user-bg-color="#f8f9fa" 
-      data-assistant-bg-color="#007bff"
-      
-      data-brand-image-url="" <!-- Optional logo/image URL -->
-      
-      data-greeting="Hello! How can I assist you today?"
-    ></script>
+    <!-- Placeholder for AnythingLLM Embedded Chat Widget -->
 </div>
+
+<script>
+// Function to get URL parameters
+function getQueryParam(param) {
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    return urlParams.get(param);
+}
+
+// Create the script element for AnythingLLM chat widget
+var script = document.createElement('script');
+
+// Set attributes for the script including dynamic embed ID from URL params
+script.setAttribute('data-embed-id', getQueryParam('embedId')); // Use 'embedId' as the URL parameter
+script.setAttribute('data-base-api-url', "https://murmuration.useanything.com/api/embed");
+script.src = "https://murmuration.useanything.com/embed/anythingllm-chat-widget.min.js";
+
+// Optional: Add more attributes here as needed
+
+// Append the script to the chat widget container
+document.querySelector('.chat-widget-container').appendChild(script);
+</script>
 
 </body>
 </html>
