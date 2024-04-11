@@ -5,26 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Chat Assistant</title>
     <style>
-        html, body {
-            height: 100%;
+        body {
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh; /* Ensure full viewport height */
             background-color: #f5f5f5; /* Light gray background */
         }
-        .chat-widget-container {
-            /* Adjust this container as needed; maybe set a max-width or specific dimensions */
-        }
-        /* Further styling could go here based on your needs */
     </style>
 </head>
 <body>
 
-<div class="chat-widget-container">
-    <!-- Placeholder for AnythingLLM Embedded Chat Widget -->
-</div>
-
+<!-- Directly embedding AnythingLLM Chat Widget without an additional container for simplicity -->
 <script>
 // Function to get URL parameters
 function getQueryParam(param) {
@@ -33,29 +26,35 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 
-// Create the script element for AnythingLLM chat widget
-var script = document.createElement('script');
+// Dynamically create and configure the script element for AnythingLLM chat widget
+(function() {
+    var script = document.createElement('script');
+    script.setAttribute('data-embed-id', getQueryParam('embedId'));
+    script.setAttribute('data-base-api-url', "https://murmuration.useanything.com/api/embed");
+    script.src = "https://murmuration.useanything.com/embed/anythingllm-chat-widget.min.js";
 
-// Set required attributes for the script
-script.setAttribute('data-embed-id', getQueryParam('embedId')); // Dynamic embed ID from URL params
-script.setAttribute('data-base-api-url', "https://murmuration.useanything.com/api/embed");
-script.src = "https://murmuration.useanything.com/embed/anythingllm-chat-widget.min.js";
+    // Customization Options
+    script.setAttribute('data-user-bg-color', '#800080'); // Purple
+    script.setAttribute('data-assistant-bg-color', '#008000'); // Green
+    script.setAttribute('data-brand-image-url', 'https://github.com/maconprograms/ai-chat/blob/main/Starling-icon.png?raw=true');
+    script.setAttribute('data-greeting', 'Hello fellow Starling! How can I help you?');
+    script.setAttribute('data-sponsor-link', 'https://starlingstrategy.com/');
+    script.setAttribute('data-sponsor-text', 'Sponsored by Starling Strategy');
+    script.setAttribute('data-position', 'top-left');
+    script.setAttribute('data-assistant-name', 'Starly');
+    
+     // Correctly set assistant icon 
+     // Ensure chat opens automatically by setting data-open-on-load to true explicitly.
+     // If this does not open on load due to widget restrictions, manual JS intervention might be needed.
+     
+     // Use raw GitHub user content link for images
+     script.setAttribute('data-assistant-icon', 'https://github.com/maconprograms/ai-chat/blob/main/Starling-icon.png?raw=true');
+     
+     // Force the chat to open upon loading (may need adjustment based on actual widget behavior)
+     script.setAttribute('data-open-on-load','true');
 
-// Customization Options
-script.setAttribute('data-user-bg-color', '#800080'); // Purple
-script.setAttribute('data-assistant-bg-color', '#008000'); // Green
-script.setAttribute('data-brand-image-url', 'https://github.com/maconprograms/ai-chat/blob/main/Starling-icon.png?raw=true'); // Ensure using raw image URL
-script.setAttribute('data-greeting', 'Hello fellow Starling! How can I help you?');
-script.setAttribute('data-sponsor-link', 'https://starlingstrategy.com/');
-script.setAttribute('data-sponsor-text', 'Starling Strategy');
-script.setAttribute('data-position', 'top-left');
-script.setAttribute('data-assistant-name', 'Starly');
-// Correctly set assistant icon and ensure chat opens on load
-script.setAttribute('data-assistant-icon', 'https://github.com/maconprograms/ai-chat/blob/main/Starling-icon.png?raw=true'); // Use raw GitHub user content link for images
-script.setAttribute('data-open-on-load','true'); // Attribute to ensure chat opens automatically
-
-// Append the script to the chat widget container
-document.querySelector('.chat-widget-container').appendChild(script);
+     document.body.appendChild(script);
+})();
 </script>
 
 </body>
