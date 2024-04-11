@@ -50,7 +50,9 @@ script.setAttribute('data-sponsor-link', 'https://starlingstrategy.com/');
 script.setAttribute('data-sponsor-text', 'Starling Strategy');
 script.setAttribute('data-position', 'top-left');
 script.setAttribute('data-assistant-name', 'Starly');
-script.setAttribute('data-open-on-load', ''); // Simply setting attribute will enable it
+// Correctly set assistant icon and ensure chat opens on load
+script.setAttribute('data-assistant-icon', 'https://github.com/maconprograms/ai-chat/blob/main/Starling-icon.png?raw=true'); // Use raw GitHub user content link for images
+script.setAttribute('data-open-on-load','true'); // Attribute to ensure chat opens automatically
 
 // Append the script to the chat widget container
 document.querySelector('.chat-widget-container').appendChild(script);
