@@ -1,14 +1,45 @@
-<P> HELLO WORLD</P>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Assistant</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5; /* Light gray background */
+        }
+        .chat-widget-container {
+            /* Adjust this container as needed; maybe set a max-width or specific dimensions */
+        }
+        /* Further styling could go here based on your needs */
+    </style>
+</head>
+<body>
 
+<div class="chat-widget-container">
+    <!-- AnythingLLM Embedded Chat Widget -->
+    <script
+      data-embed-id="your-embed-id-here"
+      data-base-api-url="https://murmuration.useanything.com/api/embed"
+      src="https://murmuration.useanything.com/embed/anythingllm-chat-widget.min.js"
 
-<!--
-Paste this script at the bottom of your HTML before the </body> tag.
-See more style and config options on our docs
-https://github.com/Mintplex-Labs/anything-llm/tree/master/embed/README.md
--->
-<script
-  data-embed-id="4c382550-6ebf-47ad-8c73-76f878f2d29f"
-  data-base-api-url="https://murmuration.useanything.com/api/embed"
-  src="https://murmuration.useanything.com/embed/anythingllm-chat-widget.min.js">
-</script>
-<!-- AnythingLLM (https://useanything.com) -->
+      <!-- Customization Options -->
+      data-model="gpt-3.5-turbo" <!-- Example model -->
+      data-temperature="0.7" <!-- Response creativity level -->
+      data-button-color="#007BFF" <!-- Primary color for the button -->
+      data-user-bg-color="#f8f9fa" 
+      data-assistant-bg-color="#007bff"
+      
+      data-brand-image-url="" <!-- Optional logo/image URL -->
+      
+      data-greeting="Hello! How can I assist you today?"
+    ></script>
+</div>
+
+</body>
+</html>
