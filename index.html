@@ -42,18 +42,12 @@ function getQueryParam(param) {
     script.setAttribute('data-sponsor-text', 'Sponsored by Starling Strategy');
     script.setAttribute('data-position', 'top-left');
     script.setAttribute('data-assistant-name', 'Starly');
+    script.setAttribute('data-assistant-icon', 'https://github.com/maconprograms/ai-chat/blob/main/Starling-icon.png?raw=true');
     
-     // Correctly set assistant icon 
-     // Ensure chat opens automatically by setting data-open-on-load to true explicitly.
-     // If this does not open on load due to widget restrictions, manual JS intervention might be needed.
-     
-     // Use raw GitHub user content link for images
-     script.setAttribute('data-assistant-icon', 'https://github.com/maconprograms/ai-chat/blob/main/Starling-icon.png?raw=true');
-     
-     // Force the chat to open upon loading (may need adjustment based on actual widget behavior)
-     script.setAttribute('data-open-on-load','true');
+    // Ensure chat opens automatically
+    script.setAttribute('data-open-on-load', 'true');
 
-     document.body.appendChild(script);
+    document.body.appendChild(script);
 })();
 </script>
 
