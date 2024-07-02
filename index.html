@@ -30,35 +30,35 @@
 
 <div id="chat-container"></div>
 
-<!-- Directly embedding AnythingLLM Chat Widget without an additional container for simplicity -->
 <script>
 // Function to get URL parameters
 function getQueryParam(param) {
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
+    const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
 // Dynamically create and configure the script element for AnythingLLM chat widget
 (function() {
-    var script = document.createElement('script');
+    const script = document.createElement('script');
     script.setAttribute('data-embed-id', getQueryParam('embedId'));
     script.setAttribute('data-base-api-url', "https://murmuration.useanything.com/api/embed");
     script.src = "https://murmuration.useanything.com/embed/anythingllm-chat-widget.min.js";
 
     // Customization Options
-    script.setAttribute('data-user-bg-color', '#800080'); // Purple (Adjust if different for Starling Strategy)
-    script.setAttribute('data-assistant-bg-color', '#008000'); // Green (Adjust if different for Starling Strategy)
-    script.setAttribute('data-brand-image-url', 'Starling_Logo_word.png'); // Relative URL to the Starling Strategy logo
-    script.setAttribute('data-greeting', 'Hello fellow Starling! How can I help you?');
+    script.setAttribute('data-user-bg-color', '#800080'); // Purple
+    script.setAttribute('data-assistant-bg-color', '#008000'); // Green
+    script.setAttribute('data-brand-image-url', 'Starling-word.png'); // Relative URL to the logo
+    script.setAttribute('data-greeting', 'Hey! I know a lot about NCTQ, teacher contracts and a bunch of other stuff. Let me know how I can help you today.');
     script.setAttribute('data-sponsor-link', 'https://starlingstrategy.com/');
     script.setAttribute('data-sponsor-text', 'Sponsored by Starling Strategy');
     script.setAttribute('data-position', 'top-left');
-    script.setAttribute('data-assistant-name', 'Starly');
-    script.setAttribute('data-assistant-icon', 'Starling-icon.png'); // Relative URL to the Starling Strategy assistant icon
-    
-    // Ensure chat opens automatically
+    script.setAttribute('data-assistant-name', 'NCTQ ChatBot');
+    script.setAttribute('data-assistant-icon', 'Starling-icon.png'); // Relative URL to the assistant icon
+    script.setAttribute('data-window-height', '100%'); // Full height
+    script.setAttribute('data-window-width', 'calc(100% + 50%)'); // 50% wider
+    script.setAttribute('data-text-size', '16px'); // Adjust text size as needed
     script.setAttribute('data-open-on-load', 'true');
+    script.setAttribute('data-support-email', 'macon@starlingstrategy.com');
 
     document.getElementById('chat-container').appendChild(script);
 })();
